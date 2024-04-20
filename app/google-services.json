@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "574046006981",
+    "project_id": "dawgrider-b3ac1",
+    "storage_bucket": "dawgrider-b3ac1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574046006981:android:95987b6e8d3c95ac850aac",
+        "android_client_info": {
+          "package_name": "edu.uga.cs.ridershareapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKngpMUK_Syp6Dveyo6eiQtnYoxsTs-BY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
