@@ -51,7 +51,8 @@ public class RideRecyclerAdapter extends  RecyclerView.Adapter<RideRecyclerAdapt
         holder.date.setText(ride.getDate());
 
         holder.itemView.setOnClickListener(v -> {
-            Log.println(Log.INFO, "RideRecyclerAdapter", "Ride clicked");
+            EditDialogFragment dialog = EditDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator());
+            dialog.show(((HomePageActivity) context).getSupportFragmentManager(), "EditDialogFragment");
         });
     }
 

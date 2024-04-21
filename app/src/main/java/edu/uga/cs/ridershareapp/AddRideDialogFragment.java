@@ -11,11 +11,9 @@ import androidx.fragment.app.DialogFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 import android.widget.EditText;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class AddRideDialogFragment extends DialogFragment {
@@ -35,7 +33,7 @@ public class AddRideDialogFragment extends DialogFragment {
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View layout = inflater.inflate(R.layout.fragment_add_ride_dialog,
                                              getActivity().findViewById(R.id.root));
-
+        layout.setPadding(40, 40, 40, 40);
         // get the view objects Fin the AlertDialog
         destinationView = layout.findViewById( R.id.dialog_dest );
         originView = layout.findViewById( R.id.dialog_origin );
@@ -72,7 +70,7 @@ public class AddRideDialogFragment extends DialogFragment {
             String date = dateView.getText().toString();
 
             // create a new JobLead object
-            RideObject ride = new RideObject(destination, origin, date);
+            RideObject ride = new RideObject(destination, origin, date, FirebaseAuth.getInstance().getUid());
 
             // get the Activity's listener to add the new job lead
             AddRideDialogListener listener = (AddRideDialogListener) getActivity();

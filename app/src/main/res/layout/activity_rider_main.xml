@@ -49,6 +49,9 @@
         android:clickable="true"
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="#F44336"
+        app:backgroundTint="@color/red_light"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,19 +6,27 @@ public class RideObject {
     private String origin;
     private String date;
 
+    private final String creator;
+
     public RideObject() {
         this.destination = null;
         this.origin = null;
         this.date = null;
         this.key = null;
+        this.creator = null;
     }
-    public RideObject(String destination, String origin, String date) {
+    public RideObject(String destination, String origin, String date, String creator) {
         this.destination = destination;
         this.origin = origin;
         this.date = date;
         this.key = null;
+        this.creator = creator;
     }
 
+
+    public String getCreator() {
+        return creator;
+    }
     public String getKey() {
         return key;
     }
@@ -48,6 +56,11 @@ public class RideObject {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Destination: " + destination + " Origin: " + origin + " Date: " + date + " Creator: " + creator;
     }
 
 

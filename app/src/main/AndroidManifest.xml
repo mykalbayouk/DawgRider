@@ -16,9 +16,6 @@
             android:name=".HomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".HomePageActivity"
-            android:exported="false" />
-        <activity
             android:name=".Login.RegisterActivity"
             android:exported="false" />
         <activity

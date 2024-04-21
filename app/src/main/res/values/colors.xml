@@ -13,8 +13,13 @@
     <color name="blue">#0288D1</color>
     <color name="blue_dark">#005B9F</color>
     <color name="blue_light">#81D4FA</color>
-    <color name="red">#F44336</color>
+    <color name="red">#AF2319</color>
     <color name="orange_dark">#FF8C00</color>
     <color name="maroon">#800000</color>
     <color name="saddlebrown">#8B4513</color>
+    <color name="red_dark">#8B0000</color>
+    <color name="red_light">#FFCDD2</color>
+    <color name="red_very_light">#FFEBEE</color>
+    <color name="red_very_dark">#530505</color>
+    <color name="grey">#9E9E9E</color>
 </resources>
