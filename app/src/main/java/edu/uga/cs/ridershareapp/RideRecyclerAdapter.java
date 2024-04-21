@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.content.Context;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.List;
 
 public class RideRecyclerAdapter extends  RecyclerView.Adapter<RideRecyclerAdapter.RideHolder>{
@@ -50,10 +52,12 @@ public class RideRecyclerAdapter extends  RecyclerView.Adapter<RideRecyclerAdapt
         holder.origin.setText(ride.getOrigin());
         holder.date.setText(ride.getDate());
 
-        holder.itemView.setOnClickListener(v -> {
-            EditDialogFragment dialog = EditDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator());
-            dialog.show(((HomePageActivity) context).getSupportFragmentManager(), "EditDialogFragment");
-        });
+        if (FirebaseAuth.getInstance().getUid() != null && FirebaseAuth.getInstance().getUid().equals(ride.getCreator())) {
+            holder.itemView.setOnClickListener(v -> {
+                EditDialogFragment dialog = EditDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator());
+                dialog.show(((HomePageActivity) context).getSupportFragmentManager(), "EditDialogFragment");
+            });
+        }
     }
 
 
