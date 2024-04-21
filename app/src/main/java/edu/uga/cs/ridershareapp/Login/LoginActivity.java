@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import edu.uga.cs.ridershareapp.R;
-import edu.uga.cs.ridershareapp.RiderMainActivity;
+import edu.uga.cs.ridershareapp.HomePageActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "User signed in successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, RiderMainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_SHORT).show();

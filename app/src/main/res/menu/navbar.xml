@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/app_bar_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Driver/Rider"
+        app:actionLayout="@layout/switch_item"
+        app:showAsAction="always" />
+    <item android:id="@+id/past_rides"
+        app:showAsAction="never"
+        android:title="Past Rides" />
+    <item android:id="@+id/rider_points"
+        app:showAsAction="never"
+        android:title="Rider Points" />
+    <item android:id="@+id/logout"
+        app:showAsAction="never"
+        android:title="Logout" />
+
+
+</menu>

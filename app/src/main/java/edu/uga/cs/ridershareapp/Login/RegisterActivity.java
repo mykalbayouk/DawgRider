@@ -12,13 +12,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import edu.uga.cs.ridershareapp.R;
-import edu.uga.cs.ridershareapp.RiderMainActivity;
+import edu.uga.cs.ridershareapp.HomePageActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -56,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
 
-                                Intent intent = new Intent(RegisterActivity.this, RiderMainActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, HomePageActivity.class);
                                 startActivity(intent);
 
 
