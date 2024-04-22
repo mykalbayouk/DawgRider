@@ -29,12 +29,13 @@ public class EditDialogFragment extends DialogFragment {
     String key;
     String user;
 
+    boolean accepted;
 
     public interface EditDialogListener {
         void editRide(int position, RideObject ride, int action);
     }
 
-    public static EditDialogFragment newInstance(int position, String destination, String origin, String date, String key, String user) {
+    public static EditDialogFragment newInstance(int position, String destination, String origin, String date, String key, String user, boolean accepted) {
         EditDialogFragment dialog = new EditDialogFragment();
 
         // Supply ride values as an argument.
@@ -45,6 +46,7 @@ public class EditDialogFragment extends DialogFragment {
         args.putString("destination", destination);
         args.putString("origin", origin);
         args.putString("date", date);
+        args.putBoolean("accepted", accepted);
         dialog.setArguments(args);
 
         return dialog;
@@ -60,7 +62,7 @@ public class EditDialogFragment extends DialogFragment {
         destination = getArguments().getString("destination");
         origin = getArguments().getString("origin");
         date = getArguments().getString("date");
-
+        accepted = getArguments().getBoolean("accepted");
         // Create the AlertDialog view
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View layout = inflater.inflate(R.layout.fragment_add_ride_dialog,
@@ -107,7 +109,7 @@ private class SaveButtonClickListener implements DialogInterface.OnClickListener
         String date = dateView.getText().toString();
 
         // create a new JobLead object
-        RideObject ride = new RideObject(destination, origin, date, user);
+        RideObject ride = new RideObject(destination, origin, date, user, accepted);
         ride.setKey(key);
         // get the Activity's listener to add the new job lead
         EditDialogListener listener = (EditDialogListener) getActivity();
@@ -124,7 +126,7 @@ private class SaveButtonClickListener implements DialogInterface.OnClickListener
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // get the new job lead data from the user
-                RideObject ride = new RideObject(destination, origin, date, user);
+                RideObject ride = new RideObject(destination, origin, date, user, accepted);
                 ride.setKey(key);
                 // get the Activity's listener to add the new job lead
                 EditDialogListener listener = (EditDialogListener) getActivity();

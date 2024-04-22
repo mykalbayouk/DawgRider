@@ -6,6 +6,8 @@ public class RideObject {
     private String origin;
     private String date;
 
+    private boolean accepted;
+
     private final String creator;
 
     public RideObject() {
@@ -14,15 +16,24 @@ public class RideObject {
         this.date = null;
         this.key = null;
         this.creator = null;
+        this.accepted = false;
     }
-    public RideObject(String destination, String origin, String date, String creator) {
+    public RideObject(String destination, String origin, String date, String creator, boolean accepted) {
         this.destination = destination;
         this.origin = origin;
         this.date = date;
         this.key = null;
         this.creator = creator;
+        this.accepted = accepted;
     }
 
+    public boolean getAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
+    }
 
     public String getCreator() {
         return creator;
