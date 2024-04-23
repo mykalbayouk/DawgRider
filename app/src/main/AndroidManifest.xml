@@ -19,7 +19,7 @@
             android:name=".Activities.AcceptedRidesActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".Login.RegisterActivity"
@@ -28,7 +28,7 @@
             android:name=".Login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.HomePageActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
