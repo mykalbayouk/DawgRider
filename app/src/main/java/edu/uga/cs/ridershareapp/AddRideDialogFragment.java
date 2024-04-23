@@ -15,6 +15,8 @@ import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import edu.uga.cs.ridershareapp.Activities.HomePageActivity;
+
 
 public class AddRideDialogFragment extends DialogFragment {
 
@@ -32,7 +34,7 @@ public class AddRideDialogFragment extends DialogFragment {
         // Create the AlertDialog view
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View layout = inflater.inflate(R.layout.fragment_add_ride_dialog,
-                                             getActivity().findViewById(R.id.root));
+                                             getActivity().findViewById(R.id.root_accept));
         layout.setPadding(40, 40, 40, 40);
         // get the view objects Fin the AlertDialog
         destinationView = layout.findViewById( R.id.dialog_dest );
@@ -70,7 +72,7 @@ public class AddRideDialogFragment extends DialogFragment {
             String date = dateView.getText().toString();
 
             // create a new JobLead object
-            RideObject ride = new RideObject(destination, origin, date, FirebaseAuth.getInstance().getUid(), false);
+            RideObject ride = new RideObject(destination, origin, date, FirebaseAuth.getInstance().getUid(), false, HomePageActivity.isDriver);
 
             // get the Activity's listener to add the new job lead
             AddRideDialogListener listener = (AddRideDialogListener) getActivity();

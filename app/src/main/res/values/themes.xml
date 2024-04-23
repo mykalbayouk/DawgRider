@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RiderShareApp" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+        <item name="actionOverflowButtonStyle">@style/OverflowButton</item>
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryVariant">@color/red_dark</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -15,13 +16,14 @@
         <item name="colorControlActivated">@color/red_dark</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
 
         <item name="android:windowBackground">@color/white</item>
         <item name="android:editTextColor">@color/red</item>
 
         <item name="colorOnBackground">@color/red</item>
         <item name="colorSurface">@color/red</item>
+
 
         <item name="android:textColorPrimary">@color/red</item>
         <item name="android:textColorSecondary">@color/red</item>
@@ -33,18 +35,23 @@
         <item name="android:backgroundDimEnabled">true</item>
 
 
+
+    </style>
+    <style name="OverflowButton" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/red_very_light</item>
     </style>
     <style name="OverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:overlapAnchor">false</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="overlapAnchor">false</item>
-        <item name="android:dropDownVerticalOffset">10.0dp</item>
+        <item name="android:dropDownVerticalOffset">10.0dp</item>"
         <!--<item name="android:popupBackground">#FFF</item>-->
     </style>
     <style name="AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:colorAccent">@color/red_very_dark</item>
-        <item name="android:textColor">@color/red</item>
+        <item name="android:colorAccent">@color/red</item>
+        <item name="android:textColor">@color/red_very_light</item>
         <item name="android:textColorPrimary">@color/red</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/red_very_dark</item>
 
 
         <!-- Styling the OK (positive) and Cancel (negative) buttons of the AlertDialog -->
@@ -58,17 +65,15 @@
         <item name="windowMinWidthMinor">70%</item>
     </style>
     <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:background">@color/black</item>
-        <item name="android:textColor">@color/red</item>
+        <item name="android:textColor">@color/red_very_light</item>
     </style>
 
     <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:background">@color/black</item> <!-- This is the background color of the button -->
-        <item name="android:textColor">@color/red</item>
+        <item name="android:textColor">@color/red_very_light</item>
     </style>
 
     <style name="NeutralButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/red_very_light</item>
     </style>
 
     <style name="Theme.RiderShareApp" parent="Base.Theme.RiderShareApp" />

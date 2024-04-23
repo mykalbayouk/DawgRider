@@ -5,47 +5,41 @@
     android:id="@+id/root_accept"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddRideDialogFragment">
+    tools:context=".AcceptRideDialogFragment">
 
-    <EditText
-        android:id="@+id/dialog_dest"
+    <TextView
+        android:id="@+id/acc_dest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:hint="Destination"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/dialog_origin"
+        android:text="TextView"
+        android:textStyle="bold"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/acc_origin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <EditText
-        android:id="@+id/dialog_origin"
+    <TextView
+        android:id="@+id/acc_origin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Origin"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/dialog_date"
+        android:text="TextView"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_dest" />
+        app:layout_constraintBottom_toTopOf="@+id/acc_date"
+        app:layout_constraintTop_toBottomOf="@+id/acc_dest" />
 
-    <EditText
-        android:id="@+id/dialog_date"
+    <TextView
+        android:id="@+id/acc_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Date"
-        android:inputType="datetime"
+        android:text="TextView"
+        android:textStyle="italic"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_origin" />
-
+        app:layout_constraintTop_toBottomOf="@+id/acc_origin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePageActivity">
+    tools:context=".Activities.HomePageActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -25,6 +25,22 @@
 
         />
 
+    <Switch
+        android:id="@+id/swap_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/main_recycler_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_toolbar"
+        android:text="Rider"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/red_dark"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recycler_view"
         android:layout_width="0dp"
@@ -36,7 +52,7 @@
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/swap_switch">
 
     </androidx.recyclerview.widget.RecyclerView>
 

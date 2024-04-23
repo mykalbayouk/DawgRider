@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import edu.uga.cs.ridershareapp.R;
-import edu.uga.cs.ridershareapp.HomePageActivity;
+import edu.uga.cs.ridershareapp.Activities.HomePageActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

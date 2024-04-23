@@ -2,14 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
     <item
-        android:id="@+id/app_bar_switch"
+        android:id="@+id/home_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Driver/Rider"
-        app:actionLayout="@layout/switch_item"
-        app:showAsAction="always" />
+        android:title="Home Screen" />
+    <item
+        android:id="@+id/accepted_rides"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Accepted Rides" />
     <item android:id="@+id/past_rides"
         app:showAsAction="never"
         android:title="Past Rides" />

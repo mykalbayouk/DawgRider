@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import edu.uga.cs.ridershareapp.R;
-import edu.uga.cs.ridershareapp.HomePageActivity;
+import edu.uga.cs.ridershareapp.Activities.HomePageActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 

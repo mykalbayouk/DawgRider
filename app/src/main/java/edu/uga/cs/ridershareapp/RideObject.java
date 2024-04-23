@@ -7,6 +7,8 @@ public class RideObject {
     private String date;
 
     private boolean accepted;
+    private final boolean offer;
+    // true = driver, false = rider
 
     private final String creator;
 
@@ -17,15 +19,22 @@ public class RideObject {
         this.key = null;
         this.creator = null;
         this.accepted = false;
+        this.offer = false;
     }
-    public RideObject(String destination, String origin, String date, String creator, boolean accepted) {
+    public RideObject(String destination, String origin, String date, String creator, boolean accepted, boolean offer) {
         this.destination = destination;
         this.origin = origin;
         this.date = date;
         this.key = null;
         this.creator = creator;
         this.accepted = accepted;
+        this.offer = offer;
     }
+
+    public boolean getOffer() {
+        return offer;
+    }
+
 
     public boolean getAccepted() {
         return accepted;
@@ -71,7 +80,7 @@ public class RideObject {
 
     @Override
     public String toString() {
-        return "Destination: " + destination + " Origin: " + origin + " Date: " + date + " Creator: " + creator;
+        return "Destination: " + destination + " Origin: " + origin + " Date: " + date + " Creator: " + creator + " Accepted: " + accepted + " Offer: " + offer + " Key: " + key;
     }
 
 
