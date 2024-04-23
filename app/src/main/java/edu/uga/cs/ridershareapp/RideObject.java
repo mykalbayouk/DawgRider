@@ -12,6 +12,8 @@ public class RideObject {
 
     private final String creator;
 
+    private String acceptedBy;
+
     public RideObject() {
         this.destination = null;
         this.origin = null;
@@ -20,8 +22,9 @@ public class RideObject {
         this.creator = null;
         this.accepted = false;
         this.offer = false;
+        this.acceptedBy = null;
     }
-    public RideObject(String destination, String origin, String date, String creator, boolean accepted, boolean offer) {
+    public RideObject(String destination, String origin, String date, String creator, String acceptedBy, boolean accepted, boolean offer) {
         this.destination = destination;
         this.origin = origin;
         this.date = date;
@@ -29,6 +32,15 @@ public class RideObject {
         this.creator = creator;
         this.accepted = accepted;
         this.offer = offer;
+        this.acceptedBy = acceptedBy;
+    }
+
+    public void setAcceptedBy(String acceptedBy) {
+        this.acceptedBy = acceptedBy;
+    }
+
+    public String getAcceptedBy() {
+        return acceptedBy;
     }
 
     public boolean getOffer() {

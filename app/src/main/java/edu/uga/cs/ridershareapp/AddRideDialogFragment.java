@@ -72,7 +72,7 @@ public class AddRideDialogFragment extends DialogFragment {
             String date = dateView.getText().toString();
 
             // create a new JobLead object
-            RideObject ride = new RideObject(destination, origin, date, FirebaseAuth.getInstance().getUid(), false, HomePageActivity.isDriver);
+            RideObject ride = new RideObject(destination, origin, date, FirebaseAuth.getInstance().getUid(),null, false, HomePageActivity.isDriver);
 
             // get the Activity's listener to add the new job lead
             AddRideDialogListener listener = (AddRideDialogListener) getActivity();

@@ -95,8 +95,7 @@ public class AcceptedRidesActivity extends AppCompatActivity implements ConfirmR
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     RideObject ride = snapshot.getValue(RideObject.class);
                     ride.setKey(snapshot.getKey());
-                    if (ride.getAccepted()) {
-                        Log.println(Log.INFO, "Ride", ride.toString());
+                    if (ride.getAccepted() && (ride.getCreator().equals(mAuth.getUid()) || ride.getAcceptedBy().equals(mAuth.getUid()))) {
                         acceptedRides.add(ride);
                     }
                 }

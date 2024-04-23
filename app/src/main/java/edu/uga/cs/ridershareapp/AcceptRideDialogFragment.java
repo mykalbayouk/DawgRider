@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class AcceptRideDialogFragment extends DialogFragment {
 
     private TextView dest_text;
@@ -24,6 +26,7 @@ public class AcceptRideDialogFragment extends DialogFragment {
     String key;
 
     String user;
+
     boolean offer;
 
 
@@ -31,7 +34,7 @@ public class AcceptRideDialogFragment extends DialogFragment {
         void acceptRide(int position, RideObject ride);
     }
 
-    public static AcceptRideDialogFragment newInstance(int position, String destination, String origin, String date, String key, String user, boolean accepted, boolean offer) {
+    public static AcceptRideDialogFragment newInstance(int position, String destination, String origin, String date, String key, String user, String acceptedBy, boolean accepted, boolean offer) {
         AcceptRideDialogFragment dialog = new AcceptRideDialogFragment();
 
         // Supply ride values as an argument.
@@ -53,6 +56,7 @@ public class AcceptRideDialogFragment extends DialogFragment {
         origin = getArguments().getString("origin");
         date = getArguments().getString("date");
         key = getArguments().getString("key");
+        user = getArguments().getString("user");
 
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View layout = inflater.inflate(R.layout.fragment_accept_ride_dialog,
@@ -87,7 +91,7 @@ public class AcceptRideDialogFragment extends DialogFragment {
             String origin = orig_text.getText().toString();
             String date = date_text.getText().toString();
 
-            RideObject ride = new RideObject(destination, origin, date, user, true, offer);
+            RideObject ride = new RideObject(destination, origin, date, user, FirebaseAuth.getInstance().getUid(), true, offer);
             ride.setKey(key);
             AcceptRideDialogListener listener = (AcceptRideDialogListener) getActivity();
 

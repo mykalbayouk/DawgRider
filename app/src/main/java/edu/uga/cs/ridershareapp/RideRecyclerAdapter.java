@@ -73,18 +73,18 @@ public class RideRecyclerAdapter extends  RecyclerView.Adapter<RideRecyclerAdapt
             if (!ride.getAccepted()) {
                 if (HomePageActivity.isDriver && !isOwn) {
                     if (!ride.getOffer()) {
-                        AcceptRideDialogFragment dialog = AcceptRideDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(), ride.getAccepted(), ride.getOffer());
+                        AcceptRideDialogFragment dialog = AcceptRideDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(),ride.getAcceptedBy(), ride.getAccepted(), ride.getOffer());
                         dialog.show(((HomePageActivity) context).getSupportFragmentManager(), "AcceptRideDialogFragment");
                     } else {
                         Toast toast = Toast.makeText(context, "Cannot accept Ride Request as Driver", Toast.LENGTH_SHORT);
                         toast.show();
                     }
                 } else if (isOwn) {
-                    EditDialogFragment dialog = EditDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(), ride.getAccepted(), ride.getOffer());
+                    EditDialogFragment dialog = EditDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(), ride.getAcceptedBy(), ride.getAccepted(), ride.getOffer());
                     dialog.show(((HomePageActivity) context).getSupportFragmentManager(), "EditDialogFragment");
                 } else {
                     if (ride.getOffer()) {
-                        AcceptRideDialogFragment dialog = AcceptRideDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(), ride.getAccepted(), ride.getOffer());
+                        AcceptRideDialogFragment dialog = AcceptRideDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(), ride.getAcceptedBy(), ride.getAccepted(), ride.getOffer());
                         dialog.show(((HomePageActivity) context).getSupportFragmentManager(), "AcceptRideDialogFragment");
                     } else {
                         Toast toast = Toast.makeText(context, "Cannot accept Ride Request as Rider", Toast.LENGTH_SHORT);
@@ -93,7 +93,7 @@ public class RideRecyclerAdapter extends  RecyclerView.Adapter<RideRecyclerAdapt
                 }
             } else {
                 if (HomePageActivity.onAccepted) {
-                    ConfirmRideDialogFragment dialog = ConfirmRideDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(), ride.getAccepted(), ride.getOffer());
+                    ConfirmRideDialogFragment dialog = ConfirmRideDialogFragment.newInstance(position, ride.getDestination(), ride.getOrigin(), ride.getDate(), ride.getKey(), ride.getCreator(),ride.getAcceptedBy(), ride.getAccepted(), ride.getOffer());
                     dialog.show(((AcceptedRidesActivity) context).getSupportFragmentManager(), "ConfirmRideDialogFragment");
                 } else {
                     Toast toast = Toast.makeText(context, "Cannot accept multiple rides", Toast.LENGTH_SHORT);

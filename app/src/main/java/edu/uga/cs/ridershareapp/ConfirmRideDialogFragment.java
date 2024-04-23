@@ -25,13 +25,15 @@ public class ConfirmRideDialogFragment extends DialogFragment {
     String key;
 
     String user;
+
+    String acceptedBy;
     boolean offer;
 
     public interface ConfirmRideDialogListener {
         void confirmRide(int position, RideObject ride);
     }
 
-    public static ConfirmRideDialogFragment newInstance(int position, String destination, String origin, String date, String key, String user, boolean accepted, boolean offer) {
+    public static ConfirmRideDialogFragment newInstance(int position, String destination, String origin, String date, String key, String user, String acceptedBy, boolean accepted, boolean offer) {
         ConfirmRideDialogFragment dialog = new ConfirmRideDialogFragment();
 
         // Supply ride values as an argument.
@@ -43,6 +45,7 @@ public class ConfirmRideDialogFragment extends DialogFragment {
         args.putString("origin", origin);
         args.putString("date", date);
         args.putBoolean("offer", offer);
+        args.putString("acceptedBy", acceptedBy);
         dialog.setArguments(args);
 
         return dialog;
@@ -83,7 +86,7 @@ public class ConfirmRideDialogFragment extends DialogFragment {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             ConfirmRideDialogListener listener = (ConfirmRideDialogListener) getActivity();
-            RideObject ride = new RideObject(destination, origin, date, user, true, offer);
+            RideObject ride = new RideObject(destination, origin, date, user, acceptedBy, true, offer);
             ride.setKey(key);
             listener.confirmRide(getArguments().getInt("position"), ride);
             dialog.dismiss();
