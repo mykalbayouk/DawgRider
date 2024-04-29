@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import edu.uga.cs.ridershareapp.Activities.AcceptedRidesActivity;
@@ -21,11 +27,34 @@ import edu.uga.cs.ridershareapp.Activities.HomePageActivity;
 public class RideRecyclerAdapter extends  RecyclerView.Adapter<RideRecyclerAdapter.RideHolder>{
     private List<RideObject> rideList;
     private Context context;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
 
     public RideRecyclerAdapter(List<RideObject> rideList, Context context) {
         this.rideList = rideList;
         this.context = context;
+        sortRidesByDate();
     }
+
+    public void sortRidesByDate() {
+        Collections.sort(rideList, new Comparator<RideObject>() {
+            @Override
+            public int compare(RideObject o1, RideObject o2) {
+                try {
+                    Log.d("SortDate", "Comparing: " + o1.getDate() + " with " + o2.getDate());
+                    Date date1 = dateFormat.parse(o1.getDate());
+                    Date date2 = dateFormat.parse(o2.getDate());
+                    int result = date2.compareTo(date1);
+                    Log.d("SortDate", "Result: " + result);
+                    return result;
+                } catch (ParseException e) {
+                    Log.e("RideRecyclerAdapter", "Error parsing date", e);
+                    return 0;
+                }
+            }
+        });
+        notifyDataSetChanged();
+    }
+
 
     class RideHolder extends RecyclerView.ViewHolder {
         TextView destination;

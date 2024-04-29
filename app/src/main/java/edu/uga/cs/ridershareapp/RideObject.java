@@ -14,6 +14,9 @@ public class RideObject {
 
     private String acceptedBy;
 
+    private boolean driverConfirmed;
+    private boolean riderConfirmed;
+
     public RideObject() {
         this.destination = null;
         this.origin = null;
@@ -90,14 +93,24 @@ public class RideObject {
         this.date = date;
     }
 
+    public boolean isDriverConfirmed() {
+        return driverConfirmed;
+    }
+
+    public void setDriverConfirmed(boolean driverConfirmed) {
+        this.driverConfirmed = driverConfirmed;
+    }
+
+    public boolean isRiderConfirmed() {
+        return riderConfirmed;
+    }
+
+    public void setRiderConfirmed(boolean riderConfirmed) {
+        this.riderConfirmed = riderConfirmed;
+    }
+
     @Override
     public String toString() {
         return "Destination: " + destination + " Origin: " + origin + " Date: " + date + " Creator: " + creator + " Accepted: " + accepted + " Offer: " + offer + " Key: " + key;
     }
-
-
-
-
-
-
 }

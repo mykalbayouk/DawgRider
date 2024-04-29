@@ -15,9 +15,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import edu.uga.cs.ridershareapp.R;
 import edu.uga.cs.ridershareapp.Activities.HomePageActivity;
+import edu.uga.cs.ridershareapp.UserObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -42,7 +45,10 @@ public class RegisterActivity extends AppCompatActivity {
             final String email = emailEditText.getText().toString();
             final String password = passworEditText.getText().toString();
 
+
             final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference usersRef = database.getReference("users");
 
             firebaseAuth.createUserWithEmailAndPassword( email, password )
                     .addOnCompleteListener( RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -54,6 +60,10 @@ public class RegisterActivity extends AppCompatActivity {
                                                Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
+                                UserObject newUser = new UserObject(email, 50);
+                                newUser.setKey(firebaseAuth.getUid());
+
+                                usersRef.child(firebaseAuth.getUid()).setValue(newUser);
 
                                 Intent intent = new Intent(RegisterActivity.this, HomePageActivity.class);
                                 startActivity(intent);

@@ -8,11 +8,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import edu.uga.cs.ridershareapp.Activities.HomePageActivity;
 
 public class AcceptRideDialogFragment extends DialogFragment {
 
@@ -90,6 +93,9 @@ public class AcceptRideDialogFragment extends DialogFragment {
             String destination = dest_text.getText().toString();
             String origin = orig_text.getText().toString();
             String date = date_text.getText().toString();
+
+            offer = !HomePageActivity.isDriver;
+            Log.d("Offer: ", offer + "");
 
             RideObject ride = new RideObject(destination, origin, date, user, FirebaseAuth.getInstance().getUid(), true, offer);
             ride.setKey(key);

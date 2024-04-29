@@ -22,7 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import edu.uga.cs.ridershareapp.AcceptRideDialogFragment;
@@ -44,7 +49,7 @@ public class HomePageActivity extends AppCompatActivity
     private RideRecyclerAdapter rideRecyclerAdapter;
     private List<RideObject> rideList;
     private FloatingActionButton addRideButton;
-
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
 
@@ -133,6 +138,22 @@ public class HomePageActivity extends AppCompatActivity
                         rideList.add(ride);
                     }
                 }
+                Collections.sort(rideList, new Comparator<RideObject>() {
+                    @Override
+                    public int compare(RideObject o1, RideObject o2) {
+                        try {
+                            Log.d("SortDate", "Comparing: " + o1.getDate() + " with " + o2.getDate());
+                            Date date1 = dateFormat.parse(o1.getDate());
+                            Date date2 = dateFormat.parse(o2.getDate());
+                            int result = date2.compareTo(date1);
+                            Log.d("SortDate", "Result: " + result);
+                            return result;
+                        } catch (ParseException e) {
+                            Log.e("RideRecyclerAdapter", "Error parsing date", e);
+                            return 0;
+                        }
+                    }
+                });
                 rideRecyclerAdapter.notifyDataSetChanged();
             }
 
@@ -164,8 +185,22 @@ public class HomePageActivity extends AppCompatActivity
                     // close the dialog
                     Toast.makeText(getApplicationContext(), "Failed to add ride", Toast.LENGTH_SHORT).show();
                 });
-
-
+        Collections.sort(rideList, new Comparator<RideObject>() {
+            @Override
+            public int compare(RideObject o1, RideObject o2) {
+                try {
+                    Log.d("SortDate", "Comparing: " + o1.getDate() + " with " + o2.getDate());
+                    Date date1 = dateFormat.parse(o1.getDate());
+                    Date date2 = dateFormat.parse(o2.getDate());
+                    int result = date2.compareTo(date1);
+                    Log.d("SortDate", "Result: " + result);
+                    return result;
+                } catch (ParseException e) {
+                    Log.e("RideRecyclerAdapter", "Error parsing date", e);
+                    return 0;
+                }
+            }
+        });
     }
 
     public void editRide (int position, RideObject ride, int action) {
